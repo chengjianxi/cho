@@ -19,3 +19,4 @@ https://github.com/chengjianxi/cho
 **使用方法**
 
 下载后，重命名文件夹为cho，然后放到  `usr\themes` 目录内，进入 typecho 后台，外观，激活即可。
+
