@@ -247,6 +247,18 @@ textarea {
     font-size: 1em;
 }
 
+.archives-date-year {
+    color: #666;
+    font-family: "Microsoft JhengHei", sans-serif;
+    font-size: 1em;
+}
+
+.archives-date {
+    color: #666;
+    font-family: "Microsoft JhengHei", sans-serif;
+    font-size: 14px;
+}
+
 .more {
     text-align: center;
 }
