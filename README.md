@@ -20,7 +20,7 @@ https://github.com/chengjianxi/cho
 
 **主题预览**
 
-[http://www.pressc.cn](http://www.pressc.cn/)
+[https://www.pressc.cn](https://www.pressc.cn/)
 
 ​    
 
