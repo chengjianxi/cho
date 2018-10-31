@@ -1,0 +1,6 @@
+
+#nav-sidebar-nemu { background-color: #222; position: fixed; top: 0px; bottom: 0px; width: 250px; right: -250px; z-index: 3000; }
+#nav-sidebar-nemu .nav-sidebar-ul { padding: 0px; margin-top: 50px; line-height: 40px; list-style-type: none; }
+#nav-sidebar-nemu .nav-sidebar-ul a { display: block; padding: 0 20px; color: #fff; text-decoration: none; }
+#nav-sidebar-nemu .nav-sidebar-ul a:hover { background-color: #33383e; }
+[data-simplersidebar='active'] { box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.5); }

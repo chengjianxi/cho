@@ -3,7 +3,7 @@ body {
     margin: 0 auto;
     background-color: #FFF;
     color: #444;
-    font-family: "Droid Serif", Georgia, "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "WenQuanYi Micro Hei", "Microsoft Yahei", serif;
+    font-family: "Droid Serif", Georgia, "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
     /*font-size: 87.5%;*/
 }
 
@@ -118,7 +118,8 @@ textarea {
 
 #header {
     padding-top: 35px;
-    border-bottom: 1px solid #EEE;
+    padding-bottom: 35px;
+    /* border-bottom: 1px solid #EEE; */
 }
 
 #logo {
@@ -136,31 +137,85 @@ textarea {
     font-style: italic;
 }
 
+.nav-avatar {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    color: #fff;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#avatar{ 
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    /* float: left; */
+}
+
 #nav-menu {
-    margin: 25px 0 0;
+    /* margin: 25px 0 0; */
     padding: 0;
+    display: inline-block;
+}
+
+.nav-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style-type: disc;
+}
+
+.nav-li {
+    display: inline-block;
 }
 
 #nav-menu a {
-    display: block;
+    /* display: block; */
     margin-right: -1px;
-    padding: 0 20px;
-    border: 1px solid #EEE;
-    border-bottom: none;
+    /*padding: 0 20px;*/
     height: 32px;
     line-height: 32px;
     color: #444;
-    float: left;
+    /* float: left; */
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,.4);
 }
 
-#nav-menu a:hover,
+#nav-menu span {
+    padding: 0px 10px;
+    /* float: left; */
+    height: 32px;
+    line-height: 32px;
+}
+
+/* 鼠标发到导航栏的样式
+   当前选中的导航栏的样式
+*/
+/*#nav-menu a:hover,
 #nav-menu .current {
     background: #F6F6F6;
+}*/
+#nav-menu a:hover {
+    text-decoration-color: red;
+    color:#555;
+    text-decoration-color:rgba(0,0,0,.6)
+}
+
+#nav-sidebar-btn {
+    /* visibility: hidden; */
+    display: none;
+    float: right;
+    position: static;
+    width:24px;
+    height:24px;
+    font-size: 20px;
 }
 
 #search {
     position: relative;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 #search input {
@@ -179,6 +234,31 @@ textarea {
     direction: ltr;
     text-indent: -9999em;
 }
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('font/iconfont.eot');
+    src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),   /* IE6-IE8 */
+    url('font/iconfont.woff') format('woff'),    /* chrome, firefox */
+    url('font/iconfont.ttf') format('truetype'),    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('font/iconfont.svg#iconfont') format('svg');    /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    /* font-size:16px; */
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-dituzuobiao:before { content: "\e680"; }
+.icon-dituzuobiao {margin-right: 10px;font-weight: 600;}
+.icon-menu:before { content: "\e611";line-height:24px; }
+/* 返回顶部按钮 */
+.up{width:30px;height:30px;background:#E8E6E6;border-bottom:2px solid #C3C3C3;text-align:center;color:#949393;box-sizing: border-box;}
+.up:before{content:"\e734";font-family:"iconfont"!important;line-height:28px; }
+.up:hover{background:#FFF;}
+
 
 @media(-webkit-min-device-pixel-ratio:2),
 (min-resolution:192dpi) {
@@ -468,24 +548,36 @@ img.alignright {
     margin: 0 0 0 15px;
 }
 
-@media(max-width:767px) {
-    body {
+@media(max-width:500px) {
+    /* body {
         font-size: 81.25%;
-    }
+    } */
     #nav-menu a {
         float: none;
         display: inline-block;
         margin: 0 -2px;
     }
+    #nav-menu span {
+        padding: 0px 10px;
+        float: none;
+    }
+    #nav-menu {
+        /* visibility: hidden; */
+        display: none;
+    }
+    #nav-sidebar-btn {
+        /* visibility: visible; */
+        display: inline;
+    }
 }
 
-@media(max-width:768px) {
+/* @media(max-width:768px) {
     #header,
     .post-title,
     .post-meta {
         text-align: center;
     }
-}
+} */
 
 @media(min-width:1200px) {
     .container {

@@ -17,11 +17,15 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('sidebar.css'); ?>">
 
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="<?php $this->options->themeUrl('js/jquery-1.11.2.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('js/topcontrol.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('js/simpler-sidebar.js'); ?>"></script>
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
@@ -34,16 +38,30 @@
 <header id="header" class="clearfix">
     <div class="container">
         <div class="row">
-            <div class="site-name col-mb-12 col-9">
-            <?php if ($this->options->logoUrl): ?>
-                <a id="logo" href="<?php $this->options->siteUrl(); ?>">
-                    <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
-                </a>
-            <?php else: ?>
-                <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
-        	    <p class="description"><?php $this->options->description() ?></p>
-            <?php endif; ?>
+            <div class="col-mb-12 col-9">
+                <div class="nav-avatar">
+                    <a href="<?php $this->options->siteUrl(); ?>" title="<?php $this->options->title() ?>"><img id="avatar" width="26" height="26" src="<?php $this->options->themeUrl('avatar.png'); ?>"></a>
+                </div>
+                <nav id="nav-menu" class="clearfix" role="navigation">
+                    <ul class="nav-ul">
+                        <!-- <li class="nav-li">
+                            <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+                        </li> -->
+                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                        <?php while($pages->next()): ?>
+                            <li class="nav-li">
+                                <?php if($pages->sequence != 1): ?> <span>·</span> <?php endif; ?>
+                                <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>         
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                </nav>
+                <!-- 侧边菜单栏按钮 -->
+                <div id="nav-sidebar-btn" class="clearfix" role="navigation" style="cursor: pointer;">
+                    <i class="iconfont icon-menu"></i>
+                </div>
             </div>
+            <!-- 搜索框 -->
             <div class="site-search col-3 kit-hidden-tb">
                 <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
                     <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
@@ -51,18 +69,38 @@
                     <button type="submit" class="submit"><?php _e('搜索'); ?></button>
                 </form>
             </div>
-            <div class="col-mb-12">
-                <nav id="nav-menu" class="clearfix" role="navigation">
-                    <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                    <?php while($pages->next()): ?>
-                    <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                    <?php endwhile; ?>
-                </nav>
-            </div>
         </div><!-- end .row -->
     </div>
 </header><!-- end #header -->
+
+
+
+<!-- <div id="nav-sidebar-btn" style="cursor: pointer;">
+<i  class="iconfont icon-menu"></i>
+    </div> -->
+<div id="nav-sidebar-nemu">
+		<ul class="nav-sidebar-ul">
+        <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                        <?php while($pages->next()): ?>
+                            <li>
+                                <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>         
+                            </li>
+                        <?php endwhile; ?>
+		</ul>
+</div>
+
+<script>
+$(function() {
+	$('#nav-sidebar-nemu').simplerSidebar({
+		opener: '#nav-sidebar-btn',
+		sidebar: {
+			align: 'right',
+			width: 250
+		}
+	});
+});
+</script>
+
 <div id="body">
     <div class="container">
         <div class="row">
