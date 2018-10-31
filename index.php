@@ -4,8 +4,8 @@
  * 
  * @package cho 
  * @author Cheng Jianxi
- * @version 0.0.1
- * @link http://pressc.cn
+ * @version 1.0.0
+ * @link https://pressc.cn
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
