@@ -44,7 +44,7 @@
         <img class="avatar" width="128" height="128" src="<?php $this->options->themeUrl('avatar.png'); ?>">			
     </div>
 	<h1 class="indexcolor">Cheng Jianxi</h1>
-	<p class="indexcolor">Work @ Harbin Wisdom Digital Technology Co.,Ltd. <br> More <a href="about.html">About Me</a> </p>
+	<p class="indexcolor"> More <a href="about.html">About Me</a> </p>
 	<p class="indexcolor" style="height: 24px; line-height: 24px; margin: 15px 0;">
     <i class="iconfont icon-dituzuobiao"></i>Harbin · China 	</p>
 	<p class="nav">
@@ -53,5 +53,7 @@
             <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
         <?php endwhile; ?>
 	</p>
+    <p class="indexcolor" style="height: 24px; line-height: 24px; margin: 15px 0;">
+    <?php _e('<a href="http://beian.miit.gov.cn">黑ICP备15007486号-2</a>'); ?>.
 </div>
 </body></html>
