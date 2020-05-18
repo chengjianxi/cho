@@ -23,7 +23,7 @@
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="<?php $this->options->themeUrl('js/jquery-1.11.2.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('js/jquery-3.5.1.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php $this->options->themeUrl('js/topcontrol.js'); ?>"></script>
     <script type="text/javascript" src="<?php $this->options->themeUrl('js/simpler-sidebar.js'); ?>"></script>
 
